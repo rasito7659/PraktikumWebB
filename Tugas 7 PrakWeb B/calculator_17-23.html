@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator JS w Switch-Case | 17-23</title>
+    <script language="javascript" type="text/javascript"> 
+        //fungsi menjalankan kalkulator sesuai operasi
+        function calc(v){
+            switch(v){
+                case "+": addition(); break;
+                case "-": subtraction(); break;
+                case "X": multiplication(); break;
+                case "/": division(); break;
+            }
+        }
+        //fungsi untuk mengecek inputan bilangan
+        function alert_mess(a,b){
+            if(!a && !b){ //kondisi jika kedua bilangan kosong
+                alert("Kedua bilangan tidak ada!"); //beri pesan alert
+                return false;
+            }else if(!a){ //Kondisi jika bilangan pertama kosong
+                alert("Bilangan pertama tidak ada!"); //beri pesan alert
+                return false;
+            }else if(!b){ //Kondisi jika bilangan kedua kosong
+                alert("Bilangan kedua tidak ada!"); //beri pesan alert
+                return false;
+            }else{
+                return true;
+            }
+        }
+        //fungsi untuk penjumlahan
+        function addition(){
+            //penyimpanan value dari textbox bernama "bil1" pada variabel a 
+            a=Number(document.formcal.bil1.value);  //merubah value bil1 yang bertipe string menjadi angka dengan fungsi Number();
+            //peyimpanan value dari textbox bernama "bil2" pada variabel b
+            b=Number(document.formcal.bil2.value);  //merubah value bil2 yang bertipe string menjadi angka dengan fungsi Number();
+            if(alert_mess(a,b)){
+                c=a+b;  //operasi penjumlahan
+                document.formcal.res.value=c;  //penyetak value dari penjumlahan pada textbox bernama "res" 
+            }
+        }
+        //fungsi untuk pengurangan
+        function subtraction(){
+            //penyimpanan value dari textbox bernama "bil1" pada variabel a 
+            a=Number(document.formcal.bil1.value);  //merubah value bil1 yang bertipe string menjadi angka dengan fungsi Number();
+            //peyimpanan value dari textbox bernama "bil2" pada variabel b
+            b=Number(document.formcal.bil2.value);  //merubah value bil2 yang bertipe string menjadi angka dengan fungsi Number();
+            if(alert_mess(a,b)){
+                c=a-b;  //operasi pengurangan
+                document.formcal.res.value=c;  //penyetak value dari penjumlahan pada textbox bernama "res" 
+            }
+        } 
+        //fungsi untuk perkalian
+        function multiplication(){
+            //penyimpanan value dari textbox bernama "bil1" pada variabel a
+            a=Number(document.formcal.bil1.value);  //merubah value bil1 yang bertipe string menjadi angka dengan fungsi Number();
+            //peyimpanan value dari textbox bernama "bil2" pada variabel b
+            b=Number(document.formcal.bil2.value);  //merubah value bil2 yang bertipe string menjadi angka dengan fungsi Number();
+            if(alert_mess(a,b)){
+                c=a*b;  //operasi perkalian
+                document.formcal.res.value=c;  //penyetak value dari penjumlahan pada textbox bernama "res" 
+            }
+        } 
+        //fungsi untuk pembagian
+        function division(){ 
+            //penyimpanan value dari textbox bernama "bil1" pada variabel a
+            a=Number(document.formcal.bil1.value);  //merubah value bil1 yang bertipe string menjadi angka dengan fungsi Number();
+             //peyimpanan value dari textbox bernama "bil2" pada variabel b
+            b=Number(document.formcal.bil2.value);  //merubah value bil2 yang bertipe string menjadi angka dengan fungsi Number();
+            if(alert_mess(a,b)){
+                c=a/b;  //pembagian
+                document.formcal.res.value=c;  //penyetak value dari penjumlahan pada textbox bernama "res" 
+            }
+        } 
+    </script> 
+</head>
+<body>
+    <h1>Kalkulator Javascript Switch Case</h1>
+    <form name="formcal"> <!--Form dengan nama formcal-->
+        Bilangan 1:<input type="text" name="bil1"><br>
+        Bilangan 2:<input type="text" name="bil2"><br>
+        Hasil:<input type="text" name="res"><br>
+        <!--Button dengan pemanggilang fungsi addition() saat di klik-->
+        <input type="button" class="btn" value="+" onclick="calc('+');">
+        <!--Button dengan pemanggilang fungsi subtraction() saat di klik-->
+        <input type="button" class="btn" value="-" onclick="calc('-');">
+        <!--Button dengan pemanggilang fungsi multiplication() saat di klik-->
+        <input type="button" class="btn" value="X" onclick="calc('X');">
+        <!--Button dengan pemanggilang fungsi division() saat di klik-->
+        <input type="button" class="btn" value="/" onclick="calc('/');">
+        <!--Button untuk reset inputan-->
+        <button type="reset">Clear</button>
+    </form>
+</body>
+</html>
